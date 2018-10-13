@@ -1,6 +1,19 @@
 ## quick-scripts
 some daily useful scripts
 
+### to run the scripts:
+spotifycover
+``` bash
+chmod +x spotifycover
+./spotifycover filename
+```
+
+weather
+``` bash
+chmod +x weather
+./weather
+```
+
 ### here's my .bash_profile additions
 ``` bash
 # work on jupyter (useful for Data Fundamentals course)
