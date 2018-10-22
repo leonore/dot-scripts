@@ -6,5 +6,5 @@ In a Terminal
 * ```work [directory]``` will cd into my workspace or a given directory in my workspace
 * ```y3``` will cd into the directory where I keep all my coursework files for Level 3
 * ```jupyter``` will launch jupyter
-* ```weather``` will prompt for a city and give me basic weather data
+* ```weather [city]``` will give me basic weather data for given city
 * ```todo [task]``` will open my todo list or add a task to my todo list
