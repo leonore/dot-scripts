@@ -1,6 +1,6 @@
 # quick access to bash_profile
 openb() {
-if [ "$@" = "-o" ]
+if [ "${@:-0}" == "-o" ]
 then
     open ~/.bash_profile
 else
@@ -18,15 +18,16 @@ work() { cd ~/Documents/Workspace/"$@" }
 # get the weather
 weather() { 
 echo "Weather for $1"
-curl -s "https://api.openweathermap.org/data/2.5/weather?q=$1&units=metric&appid=00bbba62aab5f8af6e031f59ed80c87e" | tr ',' '\n' | grep -e description -e temp | sed -e 's/[\"{}:]/ /g' -e 's/description/ /g' -e 's/main//g'
+curl -s "https://api.openweathermap.org/data/2.5/weather?q=$1&units=metric&appid=SECRET" | tr ',' '\n' | grep -e description -e temp | sed -e 's/[\"{}:]/ /g' -e 's/description/ /g' -e 's/main//g'
 }
 
 # add a todo task or open the file
 todo() { 
-if [ -z $@ ]
+if [ "${@:-0}" == 0 ]
 then
     open ~/Desktop/todo.txt
 else
     echo "$@" >> ~/Desktop/todo.txt
+    echo "$@ was added to list"
 fi
 } 
