@@ -8,17 +8,18 @@ else
 fi
 }
 
-# some useful aliases
-alias jupyter=/usr/local/anaconda3/bin/jupyter\ notebook
-alias y3="cd ~/Documents/COMPSCI/YEAR\ 3"
-
 # cd into workspace or directly into a workspace directory if argument provided
 work() { cd ~/Documents/Workspace/"$@" }
 
 # get the weather
-weather() { 
-echo "Weather for $1"
-curl -s "https://api.openweathermap.org/data/2.5/weather?q=$1&units=metric&appid=SECRET" | tr ',' '\n' | grep -e description -e temp | sed -e 's/[\"{}:]/ /g' -e 's/description/ /g' -e 's/main//g'
+weather() {
+if [ $# -ne 1 ]
+then
+    echo "USAGE: weather {city}"
+else 
+    echo "Weather for $1"
+    curl -s "https://api.openweathermap.org/data/2.5/weather?q=$1&units=metric&appid=SECRET" | tr ',' '\n' | grep -e description -e temp | sed -e 's/[\"{}:]/ /g' -e 's/description/ /g' -e 's/main//g'
+fi
 }
 
 # add a todo task or open the file
