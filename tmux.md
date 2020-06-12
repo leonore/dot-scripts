@@ -13,3 +13,5 @@ C-b } # move pane to the right
 
 # MAC COMMANDS - to adapt
 ```
+C-b " # split window vertically
+C-b % # split window horizontally
