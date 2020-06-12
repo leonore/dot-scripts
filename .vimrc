@@ -17,8 +17,13 @@ set encoding=utf8
 "indentation
 set autoindent
 set smarttab
-set tabstop=4
+"insert 2 spaces on tab
 set expandtab
+"visu of the 2 tabs
+set tabstop=2
+set softtabstop=2
+"2 tab with > too in visual
+set shiftwidth=2
 set ruler
 
 set backspace=indent,eol,start
