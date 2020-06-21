@@ -13,7 +13,7 @@ fi
 
 # quick access to .tmux.conf
 function etmux() {
-  vim .tmux.conf
+  vim ~/.tmux.conf
 }
 
 # some useful aliases
