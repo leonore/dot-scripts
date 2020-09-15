@@ -10,3 +10,11 @@ git rm -r --cached .
 git add .
 git commit -m "ignore [explanation] files"
 ```
+
+### Remove multiple git branches
+
+[source](https://medium.com/@rajsek/deleting-multiple-branches-in-git-e07be9f5073c)
+
+```
+git branch | grep <pattern> | xargs git branch -D    # -d might be sufficient 
+```
