@@ -6,3 +6,8 @@ done
 
 # copy directory, will create dest/ if non-existent
 cp -R origin/ dest/
+
+# helpful greps
+grep foo -m 2         # number of hits
+grep foo -m 1 -A 5    # number of lines to show after the hit
+grep foo -m 1 -B 5    # number of lines to show before the hit
