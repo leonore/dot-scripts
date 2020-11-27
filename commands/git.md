@@ -18,3 +18,9 @@ git commit -m "ignore [explanation] files"
 ```
 git branch | grep <pattern> | xargs git branch -D    # -d might be sufficient 
 ```
+
+### Checkout local changes within a file (rather than a whole file)
+
+```
+git checkout --patch -- <path argument>
+```
