@@ -24,3 +24,10 @@ git branch | grep <pattern> | xargs git branch -D    # -d might be sufficient
 ```
 git checkout --patch -- <path argument>
 ```
+
+### Stash commands you always end up googling again
+```
+git stash push -m "describe stash"
+git stash show -p stash@{x}
+git stash pop stash@{x}
+```
