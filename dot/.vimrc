@@ -50,4 +50,4 @@ command Cw %s/\s\+//g | noh
 "autocmd vimenter * NERDTree
 
 "tree toggle key
-nmap N :NERDTreeToggle<CR>
+nmap N :NERDTreeToggle %<CR>
