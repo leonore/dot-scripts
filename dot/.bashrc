@@ -1,8 +1,6 @@
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export GOPATH=$HOME/go:$HOME/core3:$HOME/core3/src/plz-out/go
-
 alias upstream="git branch --set-upstream-to=master"
 k() {
         kubectl "$@"
