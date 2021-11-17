@@ -1,6 +1,3 @@
-# set default shell if needed
-# set -g default-shell /bin/zsh
-
 "Vundle stuff
 set nocompatible
 filetype off
