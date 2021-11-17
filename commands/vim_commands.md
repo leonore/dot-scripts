@@ -21,4 +21,11 @@ G # goto end
 w # start of following word
 e # end of this word
 E, W # with blocks of words
+
+# comment out multiple lines
+ctrl + V # visual block
+# select with arrows
+shift + i # insert mode
+# (or other character)
+Esc Esc
 ```
