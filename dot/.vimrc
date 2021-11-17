@@ -1,14 +1,27 @@
-"powerline bar
-set rtp+=/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/powerline/bindings/vim
-"always show statusline
-set laststatus=2
+# set default shell if needed
+# set -g default-shell /bin/zsh
+
+"Vundle stuff
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
+call vundle#end()
+filetype plugin indent on
+""
+
 "enable 256 colours
 set t_Co=256
 
-
 "change colours
 syntax on
-colorscheme luna
+colorscheme codedark
 set background=dark
 
 "enable scrolling
@@ -19,6 +32,14 @@ set mouse=a
 set showmatch
 set matchpairs=(:),{:},[:],<:>
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
 "encoding
 set encoding=utf8
 
@@ -27,12 +48,14 @@ set autoindent
 set smarttab
 "insert 2 spaces on tab
 set expandtab
-"visu of the 2 tabs
-set tabstop=2
-set softtabstop=2
-"2 tab with > too
-set shiftwidth=2
+"visu of the 4 tabs
+set tabstop=4
+set softtabstop=4
+"4 tab with > too
+set shiftwidth=4
 set ruler
+
+set number
 
 set backspace=indent,eol,start
 
@@ -42,12 +65,23 @@ set linebreak
 "highlight search mode
 set hls
 
+"show colour column at 100 chars 
+set colorcolumn=100
+
 "json handling
 command Js %!python -m json.tool
 command Cw %s/\s\+//g | noh
+
+"autoread
+set autoread
 
 "tree startup
 "autocmd vimenter * NERDTree
 
 "tree toggle key
-nmap N :NERDTreeToggle %<CR>
+nmap <F6> :NERDTreeToggle %<CR>
+
+"map W to w 
+cabb W w
+
+set rtp+=~/.fzf
