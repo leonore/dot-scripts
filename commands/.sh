@@ -23,3 +23,6 @@ grep -rl pattern . | xargs sed -i 's/old/new/g'
 
 # get k8s resources and act on them
 kubectl get pods | awk '/pattern/{print $1}' | xargs kubectl delete pod
+
+# kill a hanging ps
+kill -9 pid
