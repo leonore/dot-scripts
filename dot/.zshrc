@@ -150,6 +150,6 @@ function gc {
     git checkout $(gbr)
 }
 
-# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 . /usr/local/opt/asdf/libexec/asdf.sh
 
