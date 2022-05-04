@@ -34,3 +34,9 @@ git stash pop stash@{x}
 git config --global pull.rebase true
 git reset --hard HEAD@{2}
 ```
+
+### commands for stacking PRs
+```bash
+git branch -u "origin/your/branch"
+git pull
+```
