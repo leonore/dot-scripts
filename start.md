@@ -13,6 +13,11 @@
 brew install fzf
 ```
 
+1. Vundle:
+```zsh
+https://github.com/VundleVim/Vundle.vim#quick-start
+```
+
 ------------------
 
 Skip these if you update settings from saved iTerm settings in `dot`:
