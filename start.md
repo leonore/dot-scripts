@@ -3,8 +3,17 @@
 1. [MacOS faster key deletion](https://superuser.com/questions/677665/increase-the-speed-at-which-the-delete-key-deletes-things-on-osx)
 1. [Download SF mono font for iTerm2](https://developer.apple.com/fonts/)
 1. [Follow git ssh setup steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-1. [Install brew](https://brew.sh/)
-1. [Install fzf](https://github.com/junegunn/fzf#using-homebrew)
+1. brew:
+```zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+1. fzf:
+```zsh
+brew install fzf
+```
+
+------------------
 
 Skip these if you update settings from saved iTerm settings in `dot`:
 
