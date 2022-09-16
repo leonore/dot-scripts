@@ -6,5 +6,6 @@
 1. [Install brew](https://brew.sh/)
 
 Skip these if you update settings from saved iTerm settings in `dot`:
-2. In iTerm2, Preferences > Key Bindings to set key shortcuts.
-3. [iTerm2 split in same directory](https://apple.stackexchange.com/questions/337377/iterm2-split-vertically-with-current-profile-with-same-working-directory)
+
+1. In iTerm2, Preferences > Key Bindings to set key shortcuts.
+1. [iTerm2 split in same directory](https://apple.stackexchange.com/questions/337377/iterm2-split-vertically-with-current-profile-with-same-working-directory)
