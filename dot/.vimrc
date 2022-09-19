@@ -81,5 +81,3 @@ nmap <F6> :NERDTreeToggle %<CR>
 
 "map W to w 
 cabb W w
-
-set rtp+=~/.fzf
