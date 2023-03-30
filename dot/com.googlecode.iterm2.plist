@@ -4,16 +4,6 @@
 <dict>
 	<key>Actions</key>
 	<array/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>1DDF0F4E-A1AA-43FF-BAE0-1062A1A05B26</string>
 	<key>DimOnlyText</key>
@@ -185,12 +175,16 @@
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.0099811544641852379</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.11071946022965345</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.755340576171875</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -212,12 +206,16 @@
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
-				<key>Blue Component</key>
+				<key>Alpha Component</key>
 				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.944091796875</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.48083055086224269</real>
 				<key>Red Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.385453250259161</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -266,12 +264,16 @@
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.770294189453125</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.63800046963925316</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.60970261367037892</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -826,6 +828,8 @@
 	<false/>
 	<key>WindowNumber</key>
 	<false/>
+	<key>findMode_iTerm</key>
+	<integer>0</integer>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

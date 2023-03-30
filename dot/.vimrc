@@ -7,8 +7,9 @@ set rtp+=/opt/homebrew/opt/fzf
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'tomasiser/vim-code-dark'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 call vundle#end()
 filetype plugin indent on

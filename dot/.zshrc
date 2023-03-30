@@ -1,8 +1,15 @@
-export VISUAL=vim
-export EDITOR="$VISUAL"
+export PATH=/Users/leo/.asdf/installs/golang/1.19.3/packages/bin:/Users/leo/.asdf/shims:/opt/homebrew/opt/asdf/libexec/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/opt/fzf/bin:$PATH
+export PATH=/Users/leo/.sg:$PATH
+export PATH=/Users/leo/.bin:$PATH
 
-export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="/Users/Leonore/.asdf/installs/golang/1.17.5/packages/bin:$PATH"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# zsh completion tings
+# source <(kubectl completion zsh)
+
+# gcloud
+# source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 # GITHUB aliases
 alias gb='git branch'
@@ -10,9 +17,25 @@ alias gst='git status'
 alias gco='git checkout'
 alias gd='git diff'
 alias gp='git pull'
+alias push='git push'
+alias pusho='git push origin -u HEAD'
 alias main='git checkout main'
-alias dev='cd ~/Documents/Workspace/sourcegraph/'
+alias work='cd ~/dev/sourcegraph/'
 alias upstream='git branch --set-upstream-to=origin/main'
+alias update='git pull origin main'
+
+# KUBECTL aliases
+alias ksg='kubectl -n dogfood-k8s'
+alias kst='kubectl -n scaletesting'
+alias sternsg='stern --namespace dogfood-k8s'
+alias k=kubectl
+
+# sourcegraph aliases
+alias managed='cd /Users/leo/dev/deploy-sourcegraph-managed'
+alias gosg='sg start enterprise-codeinsights'
+
+alias gen='PGUSER=sourcegraph sg generate'
+alias golint='PGUSER=sourcegraph sg lint -fix go'
 
 # quick access functions
 function ez() {
@@ -29,60 +52,33 @@ function et() {
 }
 
 # cd into workspace or directly into a workspace directory if argument provided
-work() { cd ~/Documents/Workspace/"$@";}
+dev() { cd ~/dev/"$@";}
 
-# Pretty bash tings
-force_color_prompt=yes
+# decode base64 into utf-8 insight view id
+function insightid() {
+    ID=$(echo "${@}" | base64 -d | sed -e 's/insight_view://; s/\"//g')
+    echo $ID
+    echo $ID | pbcopy
+}
+
+cb() {
+    git fetch origin --prune -q
+    if [ "$1" = "-d" ]; then 
+        git branch -v | awk '{if ($3 == "[gone]") {print $1};}'
+    else 
+        git branch -v | awk '{if ($3 == "[gone]") {print $1};}' | xargs git branch -D
+    fi
+}
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 setopt prompt_subst
-PROMPT='%T %B%~%b $ '
-RPROMPT='$(parse_git_branch)'
+# 11:24 cwd (branch) >
+PROMPT='%T %F{014}%1d%f %F{207}$(parse_git_branch)%f > '
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-# ssh agent
-alias ssha='eval "$(ssh-agent -s)"; ssh-add -t 43200 ~/.ssh/id_ed25519'
-
+# nice git and fzf integrations
 function is_in_git_repo {
     git rev-parse HEAD &> /dev/null
 }
@@ -126,7 +122,7 @@ function gt {
         --preview "git show --color=always {} | head -$LINES"
 }
 
-function gh {
+function ghl {
     is_in_git_repo || return
     git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
         fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
@@ -150,6 +146,14 @@ function gc {
     git checkout $(gbr)
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. /usr/local/opt/asdf/libexec/asdf.sh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# PROG=sg source /Users/leo/.sourcegraph/sg.zsh_autocomplete
+autoload -Uz compinit
+compinit
+
+export MG_DEPLOY_SOURCEGRAPH_MANAGED_PATH=/Users/leo/dev/deploy-sourcegraph-managed/
+# export PATH=$HOME/.bin:$PATH
+# . /usr/local/opt/asdf/libexec/asdf.sh
+source /Users/leo/google-cloud-sdk/completion.zsh.inc
+source /Users/leo/google-cloud-sdk/path.zsh.inc
