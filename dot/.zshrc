@@ -20,22 +20,15 @@ alias gp='git pull'
 alias push='git push'
 alias pusho='git push origin -u HEAD'
 alias main='git checkout main'
-alias work='cd ~/dev/sourcegraph/'
+alias work='cd ~/dev'
 alias upstream='git branch --set-upstream-to=origin/main'
 alias update='git pull origin main'
 
 # KUBECTL aliases
-alias ksg='kubectl -n dogfood-k8s'
-alias kst='kubectl -n scaletesting'
-alias sternsg='stern --namespace dogfood-k8s'
+# alias ksg='kubectl -n dogfood-k8s'
+# alias kst='kubectl -n scaletesting'
+# alias sternsg='stern --namespace dogfood-k8s'
 alias k=kubectl
-
-# sourcegraph aliases
-alias managed='cd /Users/leo/dev/deploy-sourcegraph-managed'
-alias gosg='sg start enterprise-codeinsights'
-
-alias gen='PGUSER=sourcegraph sg generate'
-alias golint='PGUSER=sourcegraph sg lint -fix go'
 
 # quick access functions
 function ez() {
@@ -148,12 +141,8 @@ function gc {
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# PROG=sg source /Users/leo/.sourcegraph/sg.zsh_autocomplete
 autoload -Uz compinit
 compinit
 
-export MG_DEPLOY_SOURCEGRAPH_MANAGED_PATH=/Users/leo/dev/deploy-sourcegraph-managed/
-# export PATH=$HOME/.bin:$PATH
-# . /usr/local/opt/asdf/libexec/asdf.sh
 source /Users/leo/google-cloud-sdk/completion.zsh.inc
 source /Users/leo/google-cloud-sdk/path.zsh.inc
