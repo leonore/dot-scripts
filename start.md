@@ -1,10 +1,11 @@
 ### Setups for new machine
 
-1. Download developer tools
-1. [MacOS faster key deletion](https://superuser.com/questions/677665/increase-the-speed-at-which-the-delete-key-deletes-things-on-osx)
-1. [Download SF mono font for iTerm2](https://developer.apple.com/fonts/)
-1. [Follow git ssh setup steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-1. brew:
+1. [Change hostname](https://support.apple.com/en-gb/guide/mac-help/mchlp2322/mac)
+2. Download developer tools
+3. [MacOS faster key deletion](https://superuser.com/questions/677665/increase-the-speed-at-which-the-delete-key-deletes-things-on-osx)
+4. [Download SF mono font for iTerm2](https://developer.apple.com/fonts/)
+5. [Follow git ssh setup steps](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+6. brew:
 ```zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # make sure to follow output steps after brew install
