@@ -22,6 +22,11 @@ git branch | grep <pattern> | xargs git branch -D    # -d might be sufficient
 git checkout --patch -- <path argument>
 ```
 
+### Revert local files to master state
+```
+git checkout origin/master [path]
+```
+
 ### Stash commands you always end up googling again
 ```bash
 git stash push -m "describe stash"
